@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>花开之间 · Between Blooms</title>
+<link rel="stylesheet" href="style.css?v=hand-overlay">
+<header><span>BETWEEN BLOOMS</span><span>立体花朵互动装置</span></header>
+<main>
+  <section class="intro">
+    <div class="eyebrow">BOTANICAL STUDY / 01</div>
+    <h1>花开之间<span>Between Blooms</span></h1>
+    <p>张开手掌唤醒花朵，握拳让它合拢。<br>也可以移动鼠标或轻扫花瓣，用滑杆控制开合和视角。</p>
+    <button id="camera" aria-pressed="false">开启摄像头</button>
+    <p id="status" role="status"></p>
+    <div id="preview"><video id="video" muted playsinline hidden aria-label="镜像摄像头预览"></video><canvas id="hand-overlay" aria-hidden="true" hidden></canvas><span id="palm" hidden></span></div>
+  </section>
+  <div id="stage" role="group" aria-label="花朵画布，按方向键移动光圈，按空格显色" tabindex="0">
+    <canvas id="flower" width="640" height="640" aria-hidden="true"></canvas>
+    <span id="ring" hidden></span>
+  </div>
+  <aside>
+    <label for="progress">显色进度 <output id="percent">0%</output></label>
+    <progress id="progress" max="100" value="0"></progress>
+    <label for="opening">花朵开合</label>
+    <input id="opening" type="range" min="0" max="100" value="0">
+    <label for="view">旋转视角</label>
+    <input id="view" type="range" min="-180" max="180" value="0">
+    <button id="reset">重新开始 ↺</button>
+  </aside>
+</main>
+<footer><span>光经过的地方，会留下颜色。</span><span>3D 花瓣 · 光圈显色</span></footer>
+<section id="recovery" hidden aria-live="polite">
+  <h2>花开之后</h2>
+  <p>生态恢复也需要时间。保留本地植物的生长空间，改善土壤与水分条件，可以为授粉昆虫提供食物和栖息地。一朵花的开放，是观察栖息地变化的起点。</p>
+</section>
+<script src="petals.js" defer></script>
+<script src="bloom.js?v=hand-overlay" defer></script>
+</html>
